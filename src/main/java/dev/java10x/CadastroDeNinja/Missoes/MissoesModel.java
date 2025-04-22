@@ -1,0 +1,21 @@
+package dev.java10x.CadastroDeNinja.Missoes;
+
+
+import dev.java10x.CadastroDeNinja.Ninjas.NinjaModel;
+import jakarta.persistence.*;
+
+import java.util.List;
+
+@Entity
+@Table(name = "tb_missoes")
+public class MissoesModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private String nomeDaMissao;
+    private String dificuldade;
+    @OneToMany (mappedBy = "missoes") // uma missão para muitos Ninjas, ou seja, uma missão pode ter vários ninjas. E depois mapeo qual coluna irei mapear "missoes"
+    private List<NinjaModel> ninjas; // crio uma lista de missoes.
+
+
+}

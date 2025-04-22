@@ -1,6 +1,9 @@
-package dev.java10x.CadastroDeNinja;
+package dev.java10x.CadastroDeNinja.Ninjas;
 
+import dev.java10x.CadastroDeNinja.Missoes.MissoesModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 // JPA - Java Persistence API
 @Entity // transformo toda a classe numa entidade do meu banco de dados, basicamente aviso ao sistema que irei criar uma tabela no banco de dados com ostributos dessa classe.
@@ -14,6 +17,10 @@ public class NinjaModel { // nossa classe de atributos, ou seja, nosso modelos d
     private String nome;
     private String email;
     private int idade;
+    @ManyToOne // Serve para mostrar que o Ninja ou serviço tem uma unica missão. Ou seja, leia-se " muitos ninjas teram a penas uma missão".
+    @JoinColumn(name = "missoes_id") // foreing key ou chave estrangeira, se conectando com a tabela de missoes. e damos um nome para uma nova coluna que estará conectada com a tabela secundária missoes.
+    private MissoesModel missoes;
+
 
     public NinjaModel() {
     }
