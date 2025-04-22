@@ -10,10 +10,10 @@ public class NinjaModel { // nossa classe de atributos, ou seja, nosso modelos d
 
     @Id // serve para gerar o ID automáticamente para a tabela de cadastro de ninja
     @GeneratedValue(strategy = GenerationType.IDENTITY) // a estratégia como os IDs seram gerados. anda junto com o @Id. nesse caso serão números sequenciais.
-    long id; // diferencia os ninjas por para serem únicos dentro do banco de dados. Não precisa criar um construtor para ele. encrementa automático
-    String nome;
-    String email;
-    int idade;
+    private long id; // diferencia os ninjas por para serem únicos dentro do banco de dados. Não precisa criar um construtor para ele. encrementa automático
+    private String nome;
+    private String email;
+    private int idade;
 
     public NinjaModel() {
     }
