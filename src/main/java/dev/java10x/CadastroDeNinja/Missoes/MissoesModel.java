@@ -15,7 +15,7 @@ public class MissoesModel {
     private String nomeDaMissao;
     private String dificuldade;
     @OneToMany (mappedBy = "missoes") // uma missão para muitos Ninjas, ou seja, uma missão pode ter vários ninjas. E depois mapeo qual coluna irei mapear "missoes"
-    private List<NinjaModel> ninjas; // crio uma lista de missoes.
+    private List<NinjaModel> ninjas; // crio uma lista de missoes, porque uma missão pode ser para vários ninjas
 
 
 }
