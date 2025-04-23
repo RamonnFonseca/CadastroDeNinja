@@ -23,6 +23,7 @@ public class NinjaModel { // nossa classe de atributos, ou seja, nosso modelos d
     @GeneratedValue(strategy = GenerationType.IDENTITY) // a estratégia como os IDs seram gerados. anda junto com o @Id. nesse caso serão números sequenciais.
     private long id; // diferencia os ninjas por para serem únicos dentro do banco de dados. Não precisa criar um construtor para ele. encrementa automático
     private String nome;
+    @Column(unique = true) // estou falando que essa coluna é única, não tem itens repetidos ou seja um pessoal no banco de dados terá apenas um unico e-mail
     private String email;
     private int idade;
     @ManyToOne // Serve para mostrar que o Ninja ou serviço tem uma unica missão. Ou seja, leia-se " muitos ninjas teram a penas uma missão".
