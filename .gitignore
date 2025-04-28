@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Proteção do Banco de Dados ###
+.env
