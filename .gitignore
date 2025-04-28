@@ -34,3 +34,4 @@ build/
 
 ### Proteção do Banco de Dados ###
 .env
+data/
