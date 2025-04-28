@@ -3,11 +3,18 @@ package dev.java10x.CadastroDeNinja.Missoes;
 
 import dev.java10x.CadastroDeNinja.Ninjas.NinjaModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
 @Table(name = "tb_missoes")
+@AllArgsConstructor // todos os argumento
+@NoArgsConstructor // sem argumentos
+@Data // getters and setters
+
 public class MissoesModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
