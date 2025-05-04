@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 * EndPoint - é a class mais próxima do usuário
 */
 @RestController // anotação para controlar a API Rest, passando um controlador
-@RequestMapping // sempre anda junto com o RestController, coloca todas as rotas no mesmo lugar
+@RequestMapping("/ninjas") // sempre anda junto com o RestController, coloca todas as rotas no mesmo lugar
 public class NinjaController {
 
     @GetMapping("/boasvindas") // anotação para chamar informações da rota, como estamos chmando localhost:8080 , /boasvindas e minusculo!
@@ -23,13 +23,13 @@ public class NinjaController {
     }
 
     // Procurar todos os Ninja (READ)
-    @GetMapping("/todos")
+    @GetMapping("/listar")
     public String mostrarTodosOsNinjas(){
         return "Mostrar Ninjas";
     }
 
     // Mostrar ninjas por id (READ)
-    @GetMapping("/todosID")
+    @GetMapping("/listarID")
     public String mostrarTodosOsNinjasPorId() {
         return "Ninja criado por id";
     }

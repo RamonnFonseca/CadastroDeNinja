@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.*;
 
 //Camada de controller é a camada de apresentação para o usuário final.
 @RestController // avisando que tudo que vem a baixo é um controller
-@RequestMapping("missoes") // serve para mapear a API
+@RequestMapping("/missoes") // serve para mapear a API
 public class MissoesController {
     // na prática fica dessa forma (localhost:8080/missoes/...)
 
