@@ -4,6 +4,8 @@ package dev.java10x.CadastroDeNinja.Ninjas;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 // faremos na camada service as regras de negocios
 @Service
 public class NinjaService {
@@ -17,5 +19,11 @@ public class NinjaService {
     // Listar todos os meus ninjas
     public List<NinjaModel> listarNinjas() {
         return ninjaRepository.findAll();
+    }
+
+    // Listar todos os meus ninjas por ID
+    public NinjaModel listarNinjaPorId(long id){
+        Optional<NinjaModel> ninjaPorId = ninjaRepository.findById(id); // uso o optional porque o ninja pode ou não existir para procurar os ninjas e uso o findById método para procurar por id
+        return ninjaPorId.orElse(null);// orElse: metodo para que se não existir o id, retorna null
     }
 }
