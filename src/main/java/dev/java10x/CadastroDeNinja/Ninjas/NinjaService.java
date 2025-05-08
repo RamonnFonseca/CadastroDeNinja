@@ -28,4 +28,10 @@ public class NinjaService {
     public NinjaModel criarNinja(NinjaModel ninja) { // metodo do tipo NinjaModel para criar os ninjas usando como parâmetro a própria classe NinjaModel
         return ninjaRepository.save(ninja); // metodo do JPA para salvar a criação de ninjas novos, mesma propriedade de ISERT em SQL
     }
+
+    // Deletar ninja - Tem que ser um método void
+    public void deletarNinjaPorId(Long id){
+        ninjaRepository.deleteById(id);
+    }
+
 }

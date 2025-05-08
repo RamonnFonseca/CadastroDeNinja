@@ -48,12 +48,13 @@ public class NinjaController {
     // Alterar dados dos ninjas (UPDATE)
     @PutMapping("/alterarID")
     public String alterarNinjaPorId() {
+
         return "Alterar ninja por id";
     }
 
-    // Deletar Ninja (DELETE)
-    @DeleteMapping("/deletarID")
-    public String deletarNinjaPorId() {
-        return "Deletar ninja por id";
+    // Deletar Ninja (DELETE) - somente delete não vai retornar nada, porque só irá sair coisas, logo não precisa retornar e usamos o void
+    @DeleteMapping("/deletar/{id}")
+    public void deletarNinjaPorId(@PathVariable Long id) { // não precisa ter um tipo porque estou só deletando coisas logo uso o void e não precisa retornar nada também.
+        ninjaService.deletarNinjaPorId(id);
     }
 }
