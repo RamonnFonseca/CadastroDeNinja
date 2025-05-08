@@ -34,4 +34,14 @@ public class NinjaService {
         ninjaRepository.deleteById(id);
     }
 
+    // Atualizar Ninja - basicamente é uma mistura de get com post, porque primeiro vou requisitar uma id para depois alterar o ninja na tabela
+    public NinjaModel atualizarNinja(Long id, NinjaModel ninjaAtualizado){ // primeiro lista o id e depois vai subscrever com a nova atualização
+        if (ninjaRepository.existsById(id)){ // Se ele existir ou seja, se o ninja existe "existById"
+            ninjaAtualizado.setId(id); // vou lá e atualizo com novos dados setando com "setId"
+            return ninjaRepository.save(ninjaAtualizado);
+        }
+        return null; // se não tiver ninja, retona null
+    }
+
+
 }

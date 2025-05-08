@@ -45,11 +45,11 @@ public class NinjaController {
         return ninjaService.listarNinjaPorId(id);
     }
 
-    // Alterar dados dos ninjas (UPDATE)
-    @PutMapping("/alterarID")
-    public String alterarNinjaPorId() {
+    // Alterar dados dos ninjas (UPDATE) - mistura do get com post. por isso usamos o @PathVariable e o @RequestBody
+    @PutMapping("/alterar/{id}")
+    public NinjaModel alterarNinjaPorId(@PathVariable Long id, @RequestBody NinjaModel ninjaAtualizado) { // quando usamos id tem que usar @PathVariable
 
-        return "Alterar ninja por id";
+        return ninjaService.atualizarNinja(id, ninjaAtualizado);
     }
 
     // Deletar Ninja (DELETE) - somente delete não vai retornar nada, porque só irá sair coisas, logo não precisa retornar e usamos o void
