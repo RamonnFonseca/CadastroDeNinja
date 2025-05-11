@@ -4,13 +4,17 @@ import java.util.List;
 import java.util.Optional;
 
 // faremos na camada service as regras de negocios ou seja toda lógica
+// Camada mais próxima do usuário
 @Service
 public class NinjaService {
 
     private NinjaRepository ninjaRepository;
+    private NinjaMapper ninjaMapper; // injeção de dependecia do NinjaMapper que é a camada de mapeamento do DTO e depois colocar como construtor
+
     // inicializo um construtor normal quando for trabalhar com a injeção de dependência, ou serviços.
-    public NinjaService(NinjaRepository ninjaRepository) {
+    public NinjaService(NinjaRepository ninjaRepository, NinjaMapper ninjaMapper) {
         this.ninjaRepository = ninjaRepository;
+        this.ninjaMapper = ninjaMapper;
     }
 
     // Listar todos os meus ninjas
@@ -25,8 +29,10 @@ public class NinjaService {
     }
 
     // Criar um novo ninja
-    public NinjaModel criarNinja(NinjaModel ninja) { // metodo do tipo NinjaModel para criar os ninjas usando como parâmetro a própria classe NinjaModel
-        return ninjaRepository.save(ninja); // metodo do JPA para salvar a criação de ninjas novos, mesma propriedade de ISERT em SQL
+    public NinjaDTO criarNinja(NinjaDTO ninjaDTO) { // metodo do tipo NinjaModel para criar os ninjas usando como parâmetro a própria classe NinjaModel
+        NinjaModel ninja = ninjaMapper.map(ninjaDTO);
+        ninja = ninjaRepository.save(ninja); // metodo do JPA para salvar a criação de ninjas novos, mesma propriedade de ISERT em SQL
+        return ninjaMapper.map(ninja);
     }
 
     // Deletar ninja - Tem que ser um método void
