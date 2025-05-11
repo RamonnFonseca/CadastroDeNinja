@@ -23,14 +23,22 @@ public class NinjaModel { // nossa classe de atributos, ou seja, nosso modelos d
     @GeneratedValue(strategy = GenerationType.IDENTITY) // a estratégia como os IDs seram gerados. anda junto com o @Id. nesse caso serão números sequenciais.
     @Column(name = "id")
     private long id; // diferencia os ninjas por para serem únicos dentro do banco de dados. Não precisa criar um construtor para ele. encrementa automático
+
     @Column(name = "nome")
     private String nome;
+
     @Column(unique = true) // estou falando que essa coluna é única, não tem itens repetidos ou seja um pessoal no banco de dados terá apenas um unico e-mail
     private String email;
+
+    @Column (name = "rank") // adicionei essa migration depois de finalizar o banco de dados, e só é possível porque criei o DTO, mas primeiro preciso criar a migration para depois adicionar aqui ao banco de ados
+    private String rank;
+
     @Column(name = "idade")
     private int idade;
+
     @ManyToOne // Serve para mostrar que o Ninja ou serviço tem uma unica missão. Ou seja, leia-se " muitos ninjas teram a penas uma missão".
     @JoinColumn(name = "missoes_id") // foreing key ou chave estrangeira, se conectando com a tabela de missoes. e damos um nome para uma nova coluna que estará conectada com a tabela secundária missoes.
     private MissoesModel missoes; // cada ninja terá apenas uma missão
+
 
 }
